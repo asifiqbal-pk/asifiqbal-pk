@@ -42,7 +42,16 @@
 
   --border-light: #e2e8f0;
   --border-dark: #1B46BB;
-
+  
+    /* Typography */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Mona Sans', sans-serif;
+  
+    h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.4;}
+    
   /* Gradients */
   --g1: #1B46BB;
   --g2: #7c3aed;
@@ -104,7 +113,7 @@ html {
   -moz-osx-font-smoothing: grayscale;}
 
 body {
-  font-family: 'Poppins';
+  font-family:  var(--font-body);
   line-height: 1.5;
   color: var(--text-primary);
   background: linear-gradient(135deg, #f0f4f8 0%, #e6ecf2 100%);
