@@ -1,0 +1,219 @@
+/* ===================================== 
+      BREAKPOINT 1: DESKTOP (≥992px) 
+======================================= */
+@media (min-width: 992px) {
+
+  .container {
+    display: grid;
+    grid-template-columns: var(--sidebar-expanded) 1fr; 
+    transition: grid-template-columns 0.3s ease; 
+    max-width: var(--container-max); 
+    margin: 0 auto;
+    min-height: 100vh; }
+  
+  .container.collapsed {grid-template-columns: var(--sidebar-collapsed) 1fr; }
+  .main-content {margin-left: 0; padding: 2% 3%; width: auto; }
+  .mobile-header, .hamburger, .mobile-menu-overlay {display: none !important; }
+}
+
+/* ===== BREAKPOINT 2: TABLET (630px to 991px) ===== */
+@media (min-width: 630px) and (max-width: 991px) {
+ 
+  html {font-size: 82%;}
+  
+  .container {display: flex; grid-template-columns: none;}
+  .container.collapsed {grid-template-columns: none;}
+
+  #sidebar {
+    display: flex !important;
+    visibility: visible;
+    opacity: 1;
+    width: var(--sidebar-collapsed) !important;
+    position: fixed;
+    top: calc(var(--header-height) - 7px);
+    left: 12px;
+    height: calc(100vh - 40px);
+    flex-shrink: 0;
+    margin: 0;
+    padding: 19px 7px;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 100;}
+  
+  .sidebar-header {display: none;}
+  
+  #sidebar .tagline,
+  #sidebar .contact-info,
+  #sidebar .contact-item,
+  #sidebar .nav-link .nav-text,
+  #sidebar .contact-text {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    margin: 0;
+    overflow: hidden;}
+  
+  #sidebar .avatar {
+    width: 60px;
+    height: 63px;
+    margin: 20px auto;  }
+  
+  #sidebar .divider {
+    margin: 10px 0;
+    width: 30px;  }
+  
+  #sidebar .name {
+    font-size: 0.75rem;
+    margin: 10px 0;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+  
+  #sidebar .nav-link {
+    justify-content: center;
+    padding: 12px;
+    margin: 10px auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;}
+  
+  #sidebar .nav-link i {
+    margin: 0;
+    font-size: 1.2rem; }
+  
+  #sidebar .footer {
+    font-size: 0.7rem;
+    margin-top: 20px;}
+  
+  .mobile-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: var(--header-height); 
+    padding: 0 16px;
+    border-bottom: 2px solid var(--glass-border);
+    z-index: 9999;}
+  
+  .hamburger {display: flex !important;}
+  .mobile-menu-overlay {display: block !important;}
+  
+  .main-content {
+    margin-left: calc(var(--sidebar-collapsed) + 12px) !important;
+    margin-top: 0;
+    padding-top: calc(var(--header-height) + 5px);
+    padding-bottom: 30px;
+    padding-left: 19px;
+    padding-right: 19px;
+    width: calc(100% - var(--sidebar-collapsed) - 30px);}
+  
+  .hero {padding: 30px; margin: 11px 0; border-radius: var(--radius-xl);}
+  .content-card {padding: 30px; margin: 11px 0;}
+  .competencies-section {padding: 30px; margin: 11px 0;}
+  .competencies-grid {grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;}
+  
+  .timeline-section {max-width: 100%; padding: 30px; margin: 11px 0;} 
+  .timeline-content {margin-left: 20px;}
+  .timeline-content h3 {font-size: 1.1rem;}
+  .timeline-content p {font-size: 0.95rem;}
+  
+  .skills-container {grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); padding: 25px; margin: 11px 0;}
+  .skill-category {padding: 18px;}
+  
+  .portfolio-grid {grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
+}
+
+/* ===== BREAKPOINT 3: MOBILE (≤629px) ===== */
+@media (max-width: 629px) {
+
+   html {font-size: 79%;}
+
+  .container {
+    display: block; 
+    padding-top: 0;
+    max-width: 100%;
+    min-height: auto; }
+  
+  #sidebar {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important; }
+ 
+  .mobile-header {
+      display: flex; 
+      visibility: visible; 
+      opacity: 1; 
+      height: var(--header-height); 
+      padding: 0 16px;
+      border-bottom: 2px solid var(--glass-border);}
+
+  .hamburger {display: flex;}
+  .mobile-menu-overlay {display: block;}
+  
+  .main-content {
+      margin-left: 0 !important; 
+      margin-top: 0; 
+      padding-top: calc(var(--header-height) + 20px);
+      padding-bottom: 30px;
+      padding-left: 19px; 
+      padding-right: 19px; 
+      width: 100%;}
+  
+  .hero {padding: 30px; margin: 11px 0; border-radius: var(--radius-xl);}
+  .content-card {padding: 30px; margin: 11px 0;}
+  .competencies-section {padding: 30px; margin: 11px 0;}
+  .competencies-grid {grid-template-columns: 1fr; gap: 15px;}
+  
+  .timeline-section {max-width: 100%; padding: 30px; margin: 11px 0;} 
+  .timeline-content {margin-left: 20px;}
+  .timeline-content h3 {font-size: 1.1rem;}
+  .timeline-content p {font-size: 0.95rem;}
+  
+  .skills-container { grid-template-columns: 1fr;padding: 15px; margin: 10px 0;}
+  .skills-box {padding: 20px;}
+  .skill-category {padding: 18px;}
+  .contact-grid {grid-template-columns: 1fr; gap: 15px;}
+  
+  .portfolio-nav .nav-container {flex-direction: column; width: 100%;}
+  .portfolio-nav .nav-link-portfolio { width: 100%; justify-content: center;}
+  .portfolio-grid {grid-template-columns: 1fr; gap: 20px; padding: 0 5px;}
+  .portfolio-card {padding: 15px;}
+  
+  .form-grid {grid-template-columns: 1fr;}
+  .contact-method-card {padding: 18px;}
+  .contact-form-section {margin-top: 20px;}
+  
+  .toast {bottom: 15px; padding: 12px 18px; font-size: 0.9rem;}
+}
+
+/* ===== SMALL MOBILE (≤480px) ===== */
+@media (max-width: 480px) {
+  .mobile-header h1 {font-size: 1.1rem;}
+  .mobile-tagline {font-size: 0.75rem; }
+  .hero-card h1 {font-size: 1.5rem;}
+  .hero .name {font-size: 1.75rem;}
+  .hero-subtitle {font-size: 1rem;}
+  .content-card h2 {font-size: 1.3rem;}
+  .btn {padding: 10px 20px;font-size: 0.9rem;}
+}
+
+/* ===== HIGH DPI/ RETINA DISPLAYS ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .avatar,
+  .portfolio-card img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
